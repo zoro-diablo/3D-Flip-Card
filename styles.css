@@ -1,0 +1,128 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:linear-gradient(to right,rgb(255, 254, 254) ,black);
+    background-position: left;
+    background-size: 400%;
+    animation: back 10s infinite alternate;
+}
+
+@keyframes back{
+    0%{
+        background-position: left;
+    }
+    100%{
+        background-position: right;
+    }
+}
+
+.container{
+    height: 400px;
+    width: 280px;
+    position: relative; 
+}
+
+.card-body{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: all 0.5s ease-in; 
+}
+
+.card-body:hover{
+    transform: rotateY(180deg);
+}
+
+.front{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    backface-visibility: hidden;
+    background:url('images/imgone.jpg') no-repeat center center/  cover;
+    color: aliceblue;
+    border-radius: 10px;
+     
+}
+
+.back{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    backface-visibility: hidden;
+    background:url('images/imgtwo.jpg') no-repeat center center/  cover;
+    color: aliceblue;
+    transform: rotateY(180deg);
+    border-radius: 10px;
+}
+
+
+h2{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 155px;
+    font-family: 'Courier New', Courier, monospace;
+    background: linear-gradient(to right,rgb(6, 245, 245),rgb(255, 255, 255));
+    background-position: left;
+    background-size: 400%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: heading 10s alternate infinite;
+}
+
+@keyframes heading{
+    0%{
+        background-position: 0 0;
+    }
+
+    50%{
+        background-position: 400% 0;
+    }
+
+    100%{
+        background-position: 0 0;
+    }
+}
+
+
+.front::after,.back::after{
+    content: '♾️';
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: 100%;
+    font-size: 0.8rem;
+    color: rgb(255, 255, 255);
+    width: 100%;
+    position: relative;
+    top:83%;
+    left: 90%;
+}
+
+.front::before,.back::before{
+    content: 'FLIP CARD';
+    font-weight: bolder;
+    background-color: white;
+    border-radius: 0 10px 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: 100%;
+    font-size: 2rem;
+    color: rgb(0, 0, 0);
+    width: 100%;
+    position: relative;
+    left: -20%;
+    top:5%;
+    padding: 1px 10px;
+}
